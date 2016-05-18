@@ -1,0 +1,8 @@
+FROM golang:1.6.2-alpine
+
+COPY 	. /go/src/github.com/jbdalido/nats_exporter
+WORKDIR /go/src/github.com/jbdalido/nats_exporter
+
+RUN go install -v 
+
+ENTRYPOINT ["cp","/go/bin/nats_exporter","/data"]
